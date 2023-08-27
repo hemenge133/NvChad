@@ -54,17 +54,68 @@ local plugins = {
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
     config = function()
-      require('dashboard').setup {
-        -- config
-      }
-    end,
+          ---@class Shortcut
+          ---@field icon string
+          ---@field icon_hl string|nil
+          ---@field desc string
+          ---@field desc_hl string|nil
+          ---@field key string
+          ---@field key_hl string|nil
+          ---@field keymap string|nil
+          ---@field action string|fun()
+          ---@param shortcut Shortcut
+          ---@return Shortcut
+          local function key(shortcut)
+            shortcut.icon_hl = shortcut.icon_hl or "Title"
+            shortcut.desc_hl = shortcut.desc_hl or "String"
+            shortcut.key_hl = shortcut.key_hl or "Keyword"
+            return shortcut
+          end
+          require("dashboard").setup {
+            theme = "doom",
+            config = {
+              header = {
+                [[                                                                       ]],
+                [[                                                                     ]],
+                [[       ████ ██████           █████      ██                     ]],
+                [[      ███████████             █████                             ]],
+                [[      █████████ ███████████████████ ███   ███████████   ]],
+                [[     █████████  ███    █████████████ █████ ██████████████   ]],
+                [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+                [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+                [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+                [[                                                                       ]],
+              },
+              center = {
+                key { icon = "  ", desc = "Restore Session", key = "s", action = "SessionRestore" },
+                key { icon = "  ", desc = "Recent Files", key = "fo", action = "Telescope oldfiles" },
+                key { icon = "  ", desc = "Find Files", key = "ff", action = "Telescope find_files" },
+                key { icon = "  ", desc = "Find Word", key = "fw", action = "Telescope live_grep" },
+                key { icon = "󰒲  ", desc = "Plugins", key = "l", action = "Lazy" },
+                -- key { icon = "  ", desc = "Help", key = "fh", action = "FzfLua help_tags" },
+              },
+              footer = { "🎉 No Code, No Bug 🎉", "", "🎉 如无必要，勿增实体 🎉" },
+            },
+          }
+        end,
     dependencies = { {'nvim-tree/nvim-web-devicons'}}
   },
   {
     "xiyaowong/transparent.nvim",
     lazy = false
-  }
+  },
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+    config = function()
+    require("auto-session").setup {
+      log_level = "error",
+      auto_restore_enabled = false,
+      -- auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+    }
+    end
 
+  }
   -- {
   --   "williamboman/nvim-lsp-installer",
   --   lazy = false,
