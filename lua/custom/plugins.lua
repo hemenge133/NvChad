@@ -51,6 +51,15 @@ local plugins = {
     lazy = false,
   },
   {
+    "MunifTanjim/nui.nvim"
+  },
+  {
+    "MaximilianLloyd/ascii.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim"
+    }
+  },
+  {
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
     config = function()
@@ -71,30 +80,24 @@ local plugins = {
             shortcut.key_hl = shortcut.key_hl or "Keyword"
             return shortcut
           end
+          local ascii = require('ascii')
           require("dashboard").setup {
             theme = "doom",
+            requires = {
+              "MaximilianLloyd/ascii.nvim",
+            },
             config = {
-              header = {
-                [[                                                                       ]],
-                [[                                                                     ]],
-                [[       ████ ██████           █████      ██                     ]],
-                [[      ███████████             █████                             ]],
-                [[      █████████ ███████████████████ ███   ███████████   ]],
-                [[     █████████  ███    █████████████ █████ ██████████████   ]],
-                [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
-                [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
-                [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
-                [[                                                                       ]],
-              },
+              header = ascii.get_random("text", "neovim"),
               center = {
                 key { icon = "  ", desc = "Restore Session", key = "s", action = "SessionRestore" },
                 key { icon = "  ", desc = "Recent Files", key = "fo", action = "Telescope oldfiles" },
+                key { icon = " ",  desc = "New File",     key = "n",  action = "enew"},
                 key { icon = "  ", desc = "Find Files", key = "ff", action = "Telescope find_files" },
                 key { icon = "  ", desc = "Find Word", key = "fw", action = "Telescope live_grep" },
                 key { icon = "󰒲  ", desc = "Plugins", key = "l", action = "Lazy" },
                 -- key { icon = "  ", desc = "Help", key = "fh", action = "FzfLua help_tags" },
               },
-              footer = { "🎉 No Code, No Bug 🎉", "", "🎉 如无必要，勿增实体 🎉" },
+              -- footer = { "🎉 如无必要，勿增实体 🎉" },
             },
           }
         end,
