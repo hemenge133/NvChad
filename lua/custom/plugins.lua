@@ -60,6 +60,10 @@ local plugins = {
     end,
     dependencies = { {'nvim-tree/nvim-web-devicons'}}
   },
+  {
+    "xiyaowong/transparent.nvim",
+    lazy = false
+  }
 
   -- {
   --   "williamboman/nvim-lsp-installer",
