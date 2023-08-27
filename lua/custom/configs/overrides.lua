@@ -7,11 +7,9 @@ M.treesitter = {
     "html",
     "css",
     "javascript",
-    "typescript",
-    "tsx",
-    "c",
     "markdown",
     "markdown_inline",
+    "python"
   },
   indent = {
     enable = true,
@@ -55,6 +53,12 @@ M.nvimtree = {
       },
     },
   },
+}
+
+M.telescope = {
+  defaults = {
+   file_ignore_patterns = { "node_modules", "__pycache__", "Documents", "Downloads"},
+  }
 }
 
 return M

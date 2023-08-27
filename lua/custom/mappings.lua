@@ -7,6 +7,9 @@ M.general = {
     ["<C-k>"] = {"<cmd> TmuxNavigateUp <CR>", "Move Up"},
     ["<C-j>"] = {"<cmd> TmuxNavigateDown <CR>", "Move Down"},
     ["<C-l>"] = {"<cmd> TmuxNavigateRight <CR>", "Move Right"},
+    -- ["<Leader>p"] = {"<cmd> NeoRootSwitchMode <CR>", "Move Right"},
+    -- ["<Leader>pre"] = {"<cmd> NeoRootChange <CR>", "Move Right"},
+
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
   },
 }
