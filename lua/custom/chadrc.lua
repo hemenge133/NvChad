@@ -4,8 +4,8 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 M.ui = {
-  theme = "penumbra_dark",
-  theme_toggle = { "penumbra_dark", "tokyonight" },
+  theme = "chadtain",
+  theme_toggle = { "chadtain", "tokyonight" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,

@@ -57,8 +57,19 @@ M.nvimtree = {
 
 M.telescope = {
   defaults = {
-   file_ignore_patterns = { "node_modules", "__pycache__", "Documents", "Downloads"},
+    vimgrep_arguments = {
+      "rg",
+      "-L",
+      "--ignore-file=/Users/h/.rgignore",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
   }
 }
+
 
 return M

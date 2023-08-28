@@ -93,7 +93,7 @@ local plugins = {
                 key { icon = "  ", desc = "Recent Files", key = "fo", action = "Telescope oldfiles" },
                 key { icon = " ",  desc = "New File",     key = "n",  action = "enew"},
                 key { icon = "  ", desc = "Find Files", key = "ff", action = "Telescope find_files" },
-                key { icon = "  ", desc = "Find Word", key = "fw", action = "Telescope grep_string" },
+                key { icon = "  ", desc = "Find Word", key = "fw", action = "Telescope live_grep" },
                 key { icon = "󰒲  ", desc = "Plugins", key = "l", action = "Lazy" },
                 -- key { icon = "  ", desc = "Help", key = "fh", action = "FzfLua help_tags" },
               },
@@ -118,12 +118,21 @@ local plugins = {
     }
     end
   },
+  -- {
+  --   'nyngwang/NeoRoot.lua',
+  --   lazy = false,
+  --   config = function()
+  --     require('neo-root').setup {
+  --       CUR_MODE = 1 -- 1 for file/buffer mode, 2 for proj-mode
+  --     }
+  --   end
+  -- },
   {
-    'nyngwang/NeoRoot.lua',
+    "AlphaTechnolog/pywal.nvim",
     lazy = false,
     config = function()
-      require('neo-root').setup {
-        CUR_MODE = 1 -- 1 for file/buffer mode, 2 for proj-mode
+      require('pywal').setup{
+        -- Config
       }
     end
   }
