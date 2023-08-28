@@ -131,6 +131,13 @@ local plugins = {
   {
     "AlphaTechnolog/pywal.nvim",
     lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-tree.lua",
+      "glepnir/dashboard-nvim",
+      -- "MunifTanjim/nui.nvim",
+      -- "neovim/nvim-lspconfig",
+      -- "williamboman/mason.nvim"
+    },
     config = function()
       local pywal = require('pywal')
       pywal.setup()
