@@ -55,12 +55,23 @@ M.nvimtree = {
   },
 }
 
+-- Apply pywal to all custom packages (load last)
+-- Add ui deps to pywal to color them
+M.lazy = {
+  install = {
+    colorscheme = {
+      "pywal"
+    }
+  }
+}
+
+-- Custom ignore file for ripgrep
 M.telescope = {
   defaults = {
     vimgrep_arguments = {
       "rg",
       "-L",
-      "--ignore-file=/Users/h/.rgignore",
+      "--ignore-file=~/.rgignore",
       "--color=never",
       "--no-heading",
       "--with-filename",
