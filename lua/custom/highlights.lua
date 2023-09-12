@@ -9,6 +9,16 @@ M.override = {
   Comment = {
     italic = true,
   },
+  StatusLine = {
+    fg = nil,
+    guibg = nil,
+    guifg = nil,
+    bg = nil,
+  },
+  BufferLineFill = {
+    fg = nil,
+    bg = nil
+  }
 }
 
 ---@type HLTable

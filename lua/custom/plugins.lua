@@ -106,7 +106,31 @@ local plugins = {
   },
   {
     "xiyaowong/transparent.nvim",
-    lazy = false
+    lazy = false,
+    config = function()
+    require("transparent").setup {
+      groups = {
+        'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+        'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+        'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+        'SignColumn', 'CursorLineNr', 'EndOfBuffer',
+      },
+      extra_groups = {
+          'Normal',
+          'NormalNC',
+          'CursorLine',
+          'NvimTree',
+          'StatusLine',
+          'StatusLineNC',
+          'NvimTreeNormal',
+          'NormalFloat',
+          'NvimTreeNormalNC',
+          'NvimTreeFolderIcon',
+          'NvimTreeStatusLine',
+          'NvimTreeStatusLineNC',
+      },
+    }
+    end
   },
   {
     "rmagatti/auto-session",
@@ -119,14 +143,19 @@ local plugins = {
     }
     end
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  },
   -- {
-  --   'nyngwang/NeoRoot.lua',
-  --   lazy = false,
-  --   config = function()
-  --     require('neo-root').setup {
-  --       CUR_MODE = 1 -- 1 for file/buffer mode, 2 for proj-mode
-  --     }
-  --   end
+  --   'ianding1/leetcode.vim',
+  --   lazy = false
   -- },
   {
     "AlphaTechnolog/pywal.nvim",
@@ -134,14 +163,8 @@ local plugins = {
     dependencies = {
       "nvim-tree/nvim-tree.lua",
       "glepnir/dashboard-nvim",
-      -- "MunifTanjim/nui.nvim",
-      -- "neovim/nvim-lspconfig",
-      -- "williamboman/mason.nvim"
+      "xiyaowong/transparent.nvim"
     },
-    config = function()
-      local pywal = require('pywal')
-      pywal.setup()
-    end
   }
   -- {
   --   "williamboman/nvim-lsp-installer",

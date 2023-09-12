@@ -1,18 +1,28 @@
--- local autocmd = vim.api.nvim_create_autocmd
--- Auto resize panes when resizing nvim window
--- autocmd("VimResized", {
+local autocmd = vim.api.nvim_create_autocmd
+autocmd("BufReadPost", {
+  pattern =  '*',
+  command = 'silent! normal! g`"zv',
+})
+-- autocmd("VimEnter", {
 --   pattern = "*",
---   command = "tabdo wincmd =",
+--   command = 'silent! colorscheme default',
 -- })
+-- autocmd("VimEnter", {
+--   pattern ="*",
+--   command = 'TransparencyEnable',
+-- })
+autocmd("VimEnter", {
+  pattern = "*",
+  command = 'silent! colorscheme pywal',
+})
 
-vim.cmd [[
-  autocmd VimEnter * colorscheme default
-  autocmd VimEnter * colorscheme pywal
-]]
+-- Python provider stuff
+vim.g["loaded_python3_provider"] = nil
+vim.g["leetcode_solution_filetype"] = 'python3'
+vim.g["python3_host_prog"] = '/usr/bin/python3'
+vim.g["leetcode_browser"] = 'firefox'
 
 vim.cmd [[set clipboard=]]
 vim.cmd [[set so=999]]
--- vim.cmd [[set colorscheme pywal]]
--- vim.cmd[[au BufEnter * NeoRoot]]
 -- vim.api.nvim_set_keymap('n', '<Leader>p', [[<Cmd>NeoRootSwitchMode<CR>]], { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<Leader>pre', [[<Cmd>NeoRootChange<CR>]], { noremap = true, silent = true })
