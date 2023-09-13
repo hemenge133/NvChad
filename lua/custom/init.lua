@@ -5,7 +5,7 @@ autocmd("BufReadPost", {
 })
 autocmd("VimEnter", {
   pattern = "*",
-  command = 'silent! colorscheme pywal',
+  command = 'silent! colorscheme lushwal',
 })
 vim.opt["termguicolors"] = true
 

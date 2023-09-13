@@ -60,7 +60,7 @@ M.nvimtree = {
 M.lazy = {
   install = {
     colorscheme = {
-      "pywal"
+      "lushwal"
     }
   }
 }

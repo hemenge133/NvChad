@@ -113,17 +113,15 @@ local plugins = {
         'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
         'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
         'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-        'SignColumn', 'CursorLineNr', 'EndOfBuffer',
+         'CursorLineNr', 'EndOfBuffer',
       },
       extra_groups = {
-          'Normal',
-          'NormalNC',
-          'CursorLine',
+          'SignColumn',
           'NvimTree',
-          'StatusLine',
-          'StatusLineNC',
+          -- 'StatusLine',
+          -- 'StatusLineNC',
           'NvimTreeNormal',
-          'NormalFloat',
+          -- 'NormalFloat',
           'NvimTreeNormalNC',
           'NvimTreeFolderIcon',
           'NvimTreeStatusLine',
@@ -153,19 +151,27 @@ local plugins = {
         })
     end
   },
+  {
+    "oncomouse/lushwal.nvim",
+    cmd = { "LushwalCompile" },
+    dependencies = {
+      { "rktjmp/lush.nvim" },
+      { "rktjmp/shipwright.nvim" },
+    },
+  }
   -- {
   --   'ianding1/leetcode.vim',
   --   lazy = false
   -- },
-  {
-    "AlphaTechnolog/pywal.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-tree.lua",
-      "glepnir/dashboard-nvim",
-      "xiyaowong/transparent.nvim"
-    },
-  }
+  -- {
+  --   "AlphaTechnolog/pywal.nvim",
+  --   lazy = false,
+  --   dependencies = {
+  --     "nvim-tree/nvim-tree.lua",
+  --     "glepnir/dashboard-nvim",
+  --     "xiyaowong/transparent.nvim"
+  --   },
+  -- }
   -- {
   --   "williamboman/nvim-lsp-installer",
   --   lazy = false,
