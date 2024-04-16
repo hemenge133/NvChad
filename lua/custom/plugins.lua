@@ -6,6 +6,13 @@ local plugins = {
   -- Override plugin definition options
 
   {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp"
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- format & linting
@@ -97,8 +104,8 @@ local plugins = {
                 key { icon = "󰒲  ", desc = "Plugins", key = "l", action = "Lazy" },
                 -- key { icon = "  ", desc = "Help", key = "fh", action = "FzfLua help_tags" },
               },
-              -- footer = { "🎉 如无必要，勿增实体 🎉" },
-              footer = {""},
+              footer = { "🎉 如无必要，勿增实体 🎉" },
+              -- footer = {""},
             },
           }
         end,
@@ -108,6 +115,7 @@ local plugins = {
     "xiyaowong/transparent.nvim",
     lazy = false,
     config = function()
+<<<<<<< HEAD
     require("transparent").setup {
       groups = {
         'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
@@ -128,6 +136,18 @@ local plugins = {
           'NvimTreeStatusLineNC',
       },
     }
+=======
+    require("transparent").setup({
+      groups = { -- table: default groups
+      'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+      'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+      'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+      'SignColumn', 'CursorLineNr', 'EndOfBuffer',
+      },
+      extra_groups = {}, -- table: additional groups that should be cleared
+      exclude_groups = {'StatusLine'}, -- table: groups you don't want to clear
+    })
+>>>>>>> a4b449014 (idk)
     end
   },
   {
@@ -146,9 +166,15 @@ local plugins = {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
+<<<<<<< HEAD
         require("nvim-surround").setup({
             -- Configuration here, or leave empty to use defaults
         })
+=======
+      local pywal = require('pywal')
+      pywal.setup()
+      vim.cmd('colorscheme pywal')
+>>>>>>> a4b449014 (idk)
     end
   },
   {
